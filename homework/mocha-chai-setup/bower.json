@@ -1,0 +1,23 @@
+{
+  "name": "mocha-chai-setup",
+  "version": "0.0.0",
+  "homepage": "https://github.com/pkoko9/Day-22",
+  "authors": [
+    "Paul Kokoszyna <pkoko9@hotmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "mocha": "~2.1.0",
+    "chai": "~1.10.0"
+  },
+  "dependencies": {
+    "underscore": "~1.7.0"
+  }
+}
