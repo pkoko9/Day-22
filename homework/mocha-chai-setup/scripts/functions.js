@@ -6,37 +6,51 @@
 // Define a function max() that takes two numbers as arguments and returns the largest of them. Use the if-then-else construct available in Javascript.
 // ---------------------
 
-function max(a, b) {
-	if(!_.isNumber(a)) {
-		throw 'The first argument must be a number.';
-	}
-	if(!_.isNumber(b)) {
-		throw 'The second argument must be a number.';
-	}
+// function max(a, b) {
+// 	if(!_.isNumber(a)) {
+// 		throw 'The first argument must be a number.';
+// 	}
+// 	if(!_.isNumber(b)) {
+// 		throw 'The second argument must be a number.';
+// 	}
 
-	var returnMax;
+// 	var returnMax;
 
-	if(a>b) {
-		returnMax = a;
-	}
-	else if(b>a) {
-		returnMax = b;
-	}
-	else {
-		returnMax = a + ' and ' + b + ' are equal';
-	}
-	return returnMax;
+// 	if(a>b) {
+// 		returnMax = a;
+// 	}
+// 	else if(b>a) {
+// 		returnMax = b;
+// 	}
+// 	else {
+// 		returnMax = a + ' and ' + b + ' are equal';
+// 	}
+// 	return returnMax;
 
-}
-
-// // ---------------------
-// // Define a function maxOfThree() that takes three numbers as arguments and returns the largest of them.
-// // ---------------------
-
-// function maxOfThree(){
-//     "use strict";
-//     //...
 // }
+
+// ---------------------
+// Define a function maxOfThree() that takes three numbers as arguments and returns the largest of them.
+// ---------------------
+
+function maxOfThree(a, b, c){
+    if(!_.isNumber(a)) {
+    	throw 'The first argument must be a number.';
+    }
+    if(!_.isNumber(b)) {
+    	throw "The second argument must be a number.";
+	}
+	if(!_.isNumber(c)) {
+		throw "The third argument must be a number.";
+	}
+
+	var numbers = [a, b, c];
+	var max =  a;
+	for(var i=0; i<numbers.length; i++) {
+		if(numbers[i] > max) max = numbers[i];
+	}
+	return max;
+}
 
 // // ---------------------
 // // Write a function that takes a character (i.e. a string of length 1) and returns true if it is a vowel, false otherwise.
