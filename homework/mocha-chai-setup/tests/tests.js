@@ -43,136 +43,162 @@ var expect = chai.expect;
 
 // Test case #3
 
-describe('isVowel', function () {
-	it('should only allow vowels to be entered', function () {
+// describe('isVowel', function () {
+// 	it('should only allow vowels to be entered', function () {
+// 		expect (function() {
+// 			isVowel (1)
+// 		}).to.throw('Argument is number and not a vowel.');
+// 		expect(function() {isVowel ('#')}).to.throw('Argument is a special character and not a vowel.');
+// 		expect(function() {isVowel (l)}).to.throw('Argument is a consonant');
+// 		expect(function() {isVowel (L)}).to.throw('Argument is a consonant') 
+// 	});
+// 	it('should identify a vowel', function (){
+// 		expect(isVowel(a)).to.equal(a + ' is a vowel');
+// 		expect(isVowel(e)).to.equal(e + ' is a vowel');
+// 		expect(isVowel(i)).to.equal(i + ' is a vowel');
+// 		expect(isVowel(o)).to.equal(o + ' is a vowel');
+// 		expect(isVowel(u)).to.equal(u + ' is a vowel');
+// 		expect(isVowel(y)).to.equal(y + ' is sometimes a vowel');
+// 		expect(isVowel(A)).to.equal(A + ' is a vowel');
+// 		expect(isVowel(E)).to.equal(E + ' is a vowel');
+// 		expect(isVowel(I)).to.equal(I + ' is a vowel');
+// 		expect(isVowel(O)).to.equal(O + ' is a vowel');
+// 		expect(isVowel(U)).to.equal(U + ' is a vowel');
+// 		expect(isVowel(Y)).to.equal(Y + ' is sometimes a vowel');
+// 	});
+// });
+
+// Test case #4
+
+describe('translate', function () {
+	it('should not allow numeric or special character input', function () {
 		expect (function() {
-			isVowel (1)
-		}).to.throw('Argument is number and not a vowel.');
-		expect(function() {isVowel(@)}).to.throw('Argument is a special character and not a vowel.');
-		expect(function() {isVowel (l)}).to.throw('Argument is a consonant');
-		expect(function() {isVowel (L)}).to.throw('Argument is a consonant') 
+			translate (1)
+		}).to.throw('Argument is number and not a letter.');
+		expect(function() {translate ('#')}).to.throw('Argument is a special character and not a letter.')
 	});
-	it('should identify a vowel', function (){
-		expect(isVowel(a)).to.equal(a + ' is a vowel');
-		expect(isVowel(e)).to.equal(e + ' is a vowel');
-		expect(isVowel(i)).to.equal(i + ' is a vowel');
-		expect(isVowel(o)).to.equal(o + ' is a vowel');
-		expect(isVowel(u)).to.equal(u + ' is a vowel');
-		expect(isVowel(y)).to.equal(y + ' is sometimes a vowel');
-		expect(isVowel(A)).to.equal(a + ' is a vowel');
-		expect(isVowel(E)).to.equal(e + ' is a vowel');
-		expect(isVowel(I)).to.equal(i + ' is a vowel');
-		expect(isVowel(O)).to.equal(o + ' is a vowel');
-		expect(isVowel(U)).to.equal(u + ' is a vowel');
-		expect(isVowel(Y)).to.equal(y + ' is sometimes a vowel');
+	
+	it('should identify whether letters are consonants or vowels', function (){
+		expect(translate(a)).to.equal(a + ' is a vowel');
+		expect(translate(A)).to.equal(A + ' is a vowel');
+		expect(translate(b)).to.equal(b + ' is a consonant');
+		expect(translate(B)).to.equal(B + ' is a consonant');
+		expect(isVowel(y)).to.equal(y + ' is a consonant');
+		expect(isVowel(Y)).to.equal(A + ' is a consonant');
 	});
 });
 
-// describe('maxInArray', function() {
-// 	it('should require array input', function() {
-// 		expect(function() {
-// 			maxInArray();
-// 		}).to.throw('First argument must be an array.');
+// Test case #5
 
-// 		expect(function() {
-// 			maxInArray({foo: 'bar'});
-// 		}).to.throw('First argument must be an array.');
+describe('arrayAdd', function() {
+	it('should require array input', function() {
+		expect(function() {
+			arrayAdd();
+		}).to.throw('First argument must be an array.');
 
-// 		expect(function() {
-// 			maxInArray(7);
-// 		}).to.throw('First argument must be an array.');
+		expect(function() {
+			arrayAdd({foo: 'bar'});
+		}).to.throw('First argument must be an array.');
 
-// 		expect(function() {
-// 			maxInArray('hello');
-// 		}).to.throw('First argument must be an array.');
+		expect(function() {
+			arrayAdd(7);
+		}).to.throw('First argument must be an array.');
 
-// 		expect(function() {
-// 			maxInArray(true);
-// 		}).to.throw('First argument must be an array.');
+		expect(function() {
+			arrayAdd('hello');
+		}).to.throw('First argument must be an array.');
 
-// 		expect(function() {
-// 			maxInArray(true, [1,2,3]);
-// 		}).to.throw('First argument must be an array.');
-// 	});
+		expect(function() {
+			arrayAdd(true);
+		}).to.throw('First argument must be an array.');
 
-// 	it('should return the max value in the array', function() {
-// 		expect(maxInArray([1,2,3])).to.equal(3);
-// 		expect(maxInArray([3,2,1,1,1])).to.equal(3);
-// 		expect(maxInArray([3,2,2])).to.equal(3);
-// 		expect(maxInArray([20,3,20,2,3])).to.equal(20);
-// 		expect(maxInArray([77])).to.equal(77);
-// 		expect(maxInArray([0, 38, -7.5])).to.equal(38);
-// 		expect(maxInArray([3.4, 3.6])).to.equal(3.6);
-// 		expect(maxInArray([3.4, 3.3])).to.equal(3.4);
-// 		expect(maxInArray([-77, -4, -33.7, -22])).to.equal(-4);
-// 	});
+		expect(function() {
+			arrayAdd(true, [1,2,3]);
+		}).to.throw('First argument must be an array.');
+	});
 
-// 	it('should only allow numeric values in my array', function() {
-// 		expect(function() {
-// 			maxInArray([1,'two',3]);
-// 		}).to.throw('Array should only contain numeric values.');
+	it('should return the sum value of all numerals in the array', function() {
+		expect(arrayAdd([1,2,3])).to.equal(6);
+		expect(arrayAdd([10,10,10])).to.equal(30);
+		expect(arrayAdd([3,2,2])).to.equal(7);
+		expect(arrayAdd([20,3,20,2,3])).to.equal(48);
+		expect(arrayAdd([77])).to.equal(77);
+		expect(arrayAdd([0, 38, -7.5])).to.equal(30.5);
+		expect(arrayAdd([3.4, 3.6])).to.equal(7);
+		expect(arrayAdd([-77, -4, -33.7, -22])).to.equal(-136.7);
+	});
 
-// 		expect(function() {
-// 			maxInArray([{foo: 'bar'},7,3]);
-// 		}).to.throw('Array should only contain numeric values.');
-// 	});
+	it('should only allow numeric values in my array', function() {
+		expect(function() {
+			arrayAdd([1,'two',3]);
+		}).to.throw('Array should only contain numeric values.');
 
-// 	it('should not allow empty arrays', function() {
-// 		expect(function() {
-// 			maxInArray([]);
-// 		}).to.throw('Array must have at least one element.');
-// 	})
+		expect(function() {
+			arrayAdd([{foo: 'bar'},7,3]);
+		}).to.throw('Array should only contain numeric values.');
+	});
 
-// });
+	it('should not allow empty arrays', function() {
+		expect(function() {
+			arrayAdd([]);
+		}).to.throw('Array must have at least one element.');
+	})
 
-// describe('salesTax', function() {
-// 	it('subtotal should be a number', function() {
-// 		expect(function() {
-// 			salesTax('number', 1);
-// 		}).to.throw('First argument is not a number.');
-// 		expect(function() {
-// 			salesTax(1, 'number');
-// 		}).to.throw('Second element is not a number.');
-// 	});
+});
 
-// 	it ('should not be negative', function() {
-// 		expect (function() {
-// 			salesTax(-1,.625);
-// 		}).to.throw ('First argument should not be a negative number');
-// 		expect (function() {
-// 			salesTax(.625,-1);
-// 		}).to.throw ('Second argument should not be a negative number');
-// 	});
+describe('arrayMultiply', function() {
+	it('should require array input', function() {
+		expect(function() {
+			arrayMultiply();
+		}).to.throw('First argument must be an array.');
 
-// 	it ('should have two arguments', function() {
-// 		expect (function() {
-// 			salesTax(5,17,22);
-// 		}).to.throw ('More than two arguments entered.');
-// 		expect (function() {
-// 			salesTax(5);
-// 		}).to.throw ('Less than two arguments entered.');
-// 		expect (function() {
-// 			salesTax();
-// 		}).to.throw ('No arguments entered.');
-// 	});
+		expect(function() {
+			arrayMultiply({foo: 'bar'});
+		}).to.throw('First argument must be an array.');
 
-// 	it ('Second argument should between 0 and 1', function() {
-// 		expect (function() {
-// 			salesTax(10, 10);
-// 		}).to.throw ('Second argument is not between 0 and 1.');
-// 		expect (function() {
-// 			salesTax(10, 1.75);
-// 		}).to.throw ('Second argument is not between 0 and 1.');
-// 	});
+		expect(function() {
+			arrayMultiply(7);
+		}).to.throw('First argument must be an array.');
 
-// 	it ('it should return the total', function() {
-// 		expect(salesTax (10, .25)).to.equal(12.5);
-// 		expect(salesTax (5, .10)).to.equal(5.5);
-// 		expect(salesTax (1000, .05)).to.equal(1050);
-// 		expect(salesTax (0, 0)).to.equal(0);
-// 		expect(salesTax (0, .25)).to.equal(0);
-// 		expect(salesTax (10, 0)).to.equal(10);
-// 	});
+		expect(function() {
+			arrayMultiply('hello');
+		}).to.throw('First argument must be an array.');
 
-// });
+		expect(function() {
+			arrayMultiply(true);
+		}).to.throw('First argument must be an array.');
+
+		expect(function() {
+			arrayMultiply(true, [1,2,3]);
+		}).to.throw('First argument must be an array.');
+	});
+
+	it('should return the product value of all numerals in the array', function() {
+		expect(arrayMultiply([1,2,3])).to.equal(6);
+		expect(arrayMultiply([10,10,10])).to.equal(1000);
+		expect(arrayMultiply([3,2,2])).to.equal(12);
+		expect(arrayMultiply([20,3,20,2,3])).to.equal(7200);
+		expect(arrayMultiply([77])).to.equal('undefined');
+		expect(arrayMultiply([0, 38, -7.5])).to.equal(0);
+		expect(arrayMultiply([3.4, 3.6])).to.equal(12.24);
+		expect(arrayMultiply([-7, -4, -3])).to.equal(-84);
+	});
+
+	it('should only allow numeric values in my array', function() {
+		expect(function() {
+			arrayMultiply([1,'two',3]);
+		}).to.throw('Array should only contain numeric values.');
+
+		expect(function() {
+			arrayMultiply([{foo: 'bar'},7,3]);
+		}).to.throw('Array should only contain numeric values.');
+	});
+
+	it('should not allow empty arrays', function() {
+		expect(function() {
+			arrayMultiply([]);
+		}).to.throw('Array must have at least one element.');
+	})
+
+});
 
