@@ -202,3 +202,129 @@ describe('arrayMultiply', function() {
 
 });
 
+// Test Case #6
+
+describe('stringReverse', function() {
+	it('should require string input only', function() {
+		expect(function() {
+			stringReverse(1);
+		}).to.throw('First argument must be an a string and not a literal number.');
+
+		expect(function() {
+			strongReverse(#);
+		}).to.throw('First argument must be an a string and not a literal special character.');
+		expect(function() {
+			strongReverse();
+		}).to.throw('Nothing entered - first argument must be an a string.');
+
+	})
+
+});
+
+// Test Case #6
+
+describe('longestWord', function() {
+	it('should require array input', function() {
+		expect(function() {
+			longestWord();
+		}).to.throw('First argument must be an array.');
+
+		expect(function() {
+			longestWord({foo: 'bar'});
+		}).to.throw('First argument must be an array.');
+
+		expect(function() {
+			longestWord(7);
+		}).to.throw('First argument must be an array.');
+
+		expect(function() {
+			longestWord('hello');
+		}).to.throw('First argument must be an array.');
+
+		expect(function() {
+			longestWord(true);
+		}).to.throw('First argument must be an array.');
+
+		expect(function() {
+			longestWord(true, [1,2,3]);
+		}).to.throw('First argument must be an array.');
+
+	it('should require letter input only', function() {
+		expect(function() {
+			longestWord(1);
+		}).to.throw('First argument must be an a letter and not a number.');
+		expect(function() {
+			longestWord('2');
+		}).to.throw('First argument must be an a letter and not a number.');
+		expect(function() {
+			longestWord('0');	
+		}).to.throw('First argument must be an a letter and not a number.');
+		expect(function() {
+			longestWord(-2);	
+		}).to.throw('First argument must be an a letter and not a number.');
+		expect(function() {
+			longestWord('#');
+		}).to.throw('First argument must be an a letter and not a special character.');
+		expect(function() {
+			longestWord();
+		}).to.throw('Nothing entered - first argument must be an a letter.');
+	})
+
+});
+
+// Test Case #7
+
+describe('filterLongWords', function() {
+	it('should require array input', function() {
+		expect(function() {
+			filterLongWords();
+		}).to.throw('First argument must be an array.');
+
+		expect(function() {
+			filterLongWords({foo: 'bar'});
+		}).to.throw('First argument must be an array.');
+
+		expect(function() {
+			filterLongWords(7);
+		}).to.throw('First argument must be an array.');
+
+		expect(function() {
+			filterLongWords('hello');
+		}).to.throw('First argument must be an array.');
+
+		expect(function() {
+			filterLongWords(true);
+		}).to.throw('First argument must be an array.');
+
+		expect(function() {
+			filterLongWords(true, [1,2,3]);
+		}).to.throw('First argument must be an array.');
+
+	it('should require letter and number input only', function() {
+		expect(function() {
+			filterLongWords(1);
+		}).to.throw('First argument must be an a letter and not a number.');
+		expect(function() {
+			longestWord('2');
+		}).to.throw('First argument must be an a letter and not a number.');
+		expect(function() {
+			longestWord('0');	
+		}).to.throw('First argument must be an a letter and not a number.');
+		expect(function() {
+			longestWord(-2);	
+		}).to.throw('First argument must be an a letter and not a number.');
+		expect(function() {
+			longestWord('#');
+		}).to.throw('First argument must be an a letter and not a special character.');
+		expect(function() {
+			longestWord();
+		}).to.throw('Nothing entered - first argument must be an a letter.');
+	})
+
+});
+
+
+
+
+
+
